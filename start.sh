@@ -24,6 +24,7 @@ $BREW/gh auth login
 $BREW/gh repo clone felixsebastian/macsetup $HOME/Code/macsetup
 cp $HOME/Code/macsetup/payloads/gitconfig $HOME/.gitconfig
 cp $HOME/Code/macsetup/payloads/zshrc $HOME/.zshrc
+cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/Code/sandbox.sh
 
 # install oh my zsh
 KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

@@ -6,8 +6,6 @@ path+=("/opt/homebrew/bin")
 path+=("$HOME/Code/macsetup/bin")
 path+=("/opt/homebrew/opt/node@20/bin")
 path+=("/opt/homebrew/opt/python@3.12/libexec/bin")
-# alias poetry="$HOME/Code/poetry/bin/poetry"
-# poetry config virtualenvs.in-project true
 export GOPATH="$HOME/Code/go"
 path+=("$GOPATH/bin")
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
@@ -17,3 +15,4 @@ path+=("$ANDROID_HOME/platform-tools")
 alias gpop="git reset HEAD^"
 alias xpd="dev perion-local"
 alias lxi="dev lexiquest-local"
+alias sbx="~/Code/sandbox.sh"
