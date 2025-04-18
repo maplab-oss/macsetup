@@ -12,6 +12,9 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 export ANDROID_HOME=$HOME/Library/Android/sdk
 path+=("$ANDROID_HOME/emulator")
 path+=("$ANDROID_HOME/platform-tools")
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 alias gpop="git reset HEAD^"
 alias lxi="dev lexiquest-local"
 alias he="dev heidi-local"
