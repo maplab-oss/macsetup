@@ -13,6 +13,6 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 path+=("$ANDROID_HOME/emulator")
 path+=("$ANDROID_HOME/platform-tools")
 alias gpop="git reset HEAD^"
-alias xpd="dev perion-local"
 alias lxi="dev lexiquest-local"
+alias he="dev heidi-local"
 alias sbx="~/Code/sandbox.sh"
