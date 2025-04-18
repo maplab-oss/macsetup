@@ -18,8 +18,8 @@ $BREW/brew install python
 $BREW/brew install pipx
 $BREW/brew install awscli
 
-# setup gh cli
 $BREW/gh auth login
+pipx ensurepath
 
 # copy files
 $BREW/gh repo clone felixsebastian/macsetup $HOME/Code/macsetup
