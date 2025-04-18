@@ -16,6 +16,7 @@ $BREW/brew install go-task/tap/go-task
 $BREW/brew install gh go-task node@20
 $BREW/brew install python
 $BREW/brew install pipx
+$BREW/brew install pyenv
 $BREW/brew install awscli
 
 $BREW/gh auth login
