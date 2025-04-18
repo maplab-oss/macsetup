@@ -20,6 +20,9 @@ $BREW/brew install pyenv
 $BREW/gh auth login
 pipx ensurepath
 pipx install awscli
+pyenv install 3.11
+pipx install --python python3.11 aider-chat
+pipx inject aider-chat google-generativeai
 
 # copy files
 $BREW/gh repo clone felixsebastian/macsetup $HOME/Code/macsetup
