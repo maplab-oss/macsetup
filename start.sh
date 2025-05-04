@@ -11,11 +11,20 @@ mkdir -p $HOME/Code
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 BREW=/opt/homebrew/bin
 
+# copy files
+cp $HOME/Code/macsetup/payloads/gitconfig $HOME/.gitconfig
+cp $HOME/Code/macsetup/payloads/zshrc $HOME/.zshrc
+cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/Code/sandbox.sh
+
+source $HOME/.zshrc
+
 # install homebrew packages
 $BREW/brew install go-task/tap/go-task
 $BREW/brew install gh go-task node@20
 $BREW/brew install pipx
 $BREW/brew install pyenv
+
+source $HOME/.zshrc
 
 $BREW/gh auth login
 $BREW/pipx ensurepath
@@ -24,11 +33,8 @@ $BREW/pyenv install 3.11
 $BREW/pipx install --python python3.11 aider-chat
 $BREW/pipx inject aider-chat google-generativeai
 
-# copy files
+# clone this repo
 $BREW/gh repo clone felixsebastian/macsetup $HOME/Code/macsetup
-cp $HOME/Code/macsetup/payloads/gitconfig $HOME/.gitconfig
-cp $HOME/Code/macsetup/payloads/zshrc $HOME/.zshrc
-cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/Code/sandbox.sh
 
 # install oh my zsh
 KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
