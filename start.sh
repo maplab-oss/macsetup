@@ -16,6 +16,9 @@ $BREW/gh auth login
 $BREW/brew install gh
 $BREW/gh repo clone felixsebastian/macsetup $HOME/Code/macsetup
 
+# install oh my zsh
+KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # copy files
 curl -o $HOME/.gitconfig https://raw.githubusercontent.com/felixsebastian/macsetup/refs/heads/main/payloads/gitconfig
 curl -o $HOME/.zshrc https://raw.githubusercontent.com/felixsebastian/macsetup/refs/heads/main/payloads/zshrc
@@ -35,6 +38,3 @@ $BREW/pipx install awscli
 $BREW/pyenv install 3.11
 $BREW/pipx install --python python3.11 aider-chat
 $BREW/pipx inject aider-chat google-generativeai
-
-# install oh my zsh
-KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
