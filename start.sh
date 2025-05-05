@@ -12,9 +12,9 @@ mkdir -p $HOME/Code
 BREW=/opt/homebrew/bin
 
 # copy files
-cp $HOME/Code/macsetup/payloads/gitconfig $HOME/.gitconfig
-cp $HOME/Code/macsetup/payloads/zshrc $HOME/.zshrc
-cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/Code/sandbox.sh
+curl -o $HOME/.gitconfig https://raw.githubusercontent.com/felixsebastian/macsetup/refs/heads/main/payloads/gitconfig
+curl -o $HOME/.zshrc https://raw.githubusercontent.com/felixsebastian/macsetup/refs/heads/main/payloads/zshrc
+curl -o $HOME/sandbox.sh https://raw.githubusercontent.com/felixsebastian/macsetup/refs/heads/main/payloads/sandbox.sh
 
 source $HOME/.zshrc
 
