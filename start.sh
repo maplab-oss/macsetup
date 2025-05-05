@@ -12,9 +12,9 @@ mkdir -p $HOME/Code
 BREW=/opt/homebrew/bin
 
 # clone this repo
-$BREW/gh auth login
 $BREW/brew install gh
-$BREW/gh repo clone felixsebastian/macsetup $HOME/Code/macsetup
+# $BREW/gh auth login
+# $BREW/gh repo clone felixsebastian/macsetup $HOME/Code/macsetup
 
 # install oh my zsh
 KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
