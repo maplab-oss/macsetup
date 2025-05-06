@@ -20,9 +20,9 @@ $BREW/gh repo clone felixsebastian/macsetup $HOME/Code/macsetup
 KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # copy files
-curl -o $HOME/.gitconfig https://raw.githubusercontent.com/felixsebastian/macsetup/refs/heads/main/payloads/gitconfig
-curl -o $HOME/.zshrc https://raw.githubusercontent.com/felixsebastian/macsetup/refs/heads/main/payloads/zshrc
-curl -o $HOME/sandbox.sh https://raw.githubusercontent.com/felixsebastian/macsetup/refs/heads/main/payloads/sandbox.sh
+cp $HOME/Code/macsetup/payloads/gitconfig $HOME/.gitconfig
+cp $HOME/Code/macsetup/payloads/zshrc $HOME/.zshrc
+cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 
 source $HOME/.zshrc
 
