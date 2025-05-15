@@ -1,13 +1,18 @@
 {
-    "editor.formatOnSave": true,
-    "eslint.format.enable": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "always"
-    },
+    "window.commandCenter": true,
     "[typescript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "[typescriptreact]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    }
+    },
+    "editor.fontSize": 18,
+    "editor.formatOnSave": true,
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always"
+    },
+    "editor.tabSize": 2,
+    "editor.fontFamily": "'Berkeley Mono', Menlo, Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 18
 }
