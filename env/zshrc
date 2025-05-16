@@ -16,7 +16,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 alias gpop="git reset HEAD^"
-alias lxi="dev lexiquest-local"
-alias he="dev heidi-local"
 alias sbx="~/Code/sandbox.sh"
-alias aider-gemini="export GEMINI_API_KEY=AIzaSyAi1XWAdLhqVmak0hknFVtQrD7PmngGRyI; aider --model gemini-2.5-pro"
+source $HOME/Code/macsetup/zshrc-user.sh
