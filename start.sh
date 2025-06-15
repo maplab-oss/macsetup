@@ -27,7 +27,7 @@ cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 
 # install homebrew packages
 brew install go-task/tap/go-task
-brew install go-task node@20 pipx pyenv awscli
+brew install go-task node@20 pipx pyenv pyenv-virtualenv awscli
 
 gh auth login
 pipx ensurepath
