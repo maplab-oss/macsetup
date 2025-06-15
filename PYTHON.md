@@ -5,10 +5,23 @@ Install a version with
 pyenv install 3.12.3
 ```
 
-Create a virtual env with
+Create a project and venv
 ```
-pyenv virtualenv 3.12.3 myapp-env
+poetry init -n
+poetry env use $(pyenv prefix 3.12.3)/bin/python
+poetry install
 ```
+
+Set up project tooling
+```
+poetry add --group dev black ruff pyright pytest
+```
+
+VSCode extensions
+- ms-python.python
+- ms-python.vscode-pylance
+- charliermarsh.ruff
+- ms-python.black-formatter
 
 Activate this env with
 ```
