@@ -27,13 +27,10 @@ cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 
 # install homebrew packages
 brew install go-task/tap/go-task
-brew install go-task node@20 pipx pyenv awscli
+brew install go-task awscli
 
 gh auth login
-pipx ensurepath
-pipx install poetry
 
-poetry config virtualenvs.in-project true
-
-npm install --global npm
-npm install --global pnpm yarn pm2
+$SCRIPT_DIR/modules/node/install.sh
+$SCRIPT_DIR/modules/python/install.sh
+$SCRIPT_DIR/modules/ruby/install.sh
