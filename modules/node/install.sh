@@ -2,5 +2,5 @@
 
 set -e
 
-curl https://get.volta.sh | bash
-volta install node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+nvm install node

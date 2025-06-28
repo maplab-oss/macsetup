@@ -27,7 +27,7 @@ cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 
 # install homebrew packages
 brew install go-task/tap/go-task
-brew install go-task awscli
+brew install go-task awscli tmux overmind
 
 gh auth login
 
