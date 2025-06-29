@@ -19,6 +19,7 @@ path+=("$GOPATH/bin")
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PYENV_ROOT/shims:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 alias gpop="git reset HEAD^"
 alias sbx="~/Code/sandbox.sh"
