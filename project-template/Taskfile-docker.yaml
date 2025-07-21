@@ -1,0 +1,27 @@
+version: "3"
+tasks:
+  start:
+    aliases: [s]
+    cmds:
+      - docker compose up -d {{.CLI_ARGS}}
+  rebuild:
+    cmds:
+      - docker compose rm -sfv {{.CLI_ARGS}}
+      - docker compose build {{.CLI_ARGS}}
+      - docker compose up -d {{.CLI_ARGS}}
+  logs:
+    aliases: [l]
+    cmds:
+      - docker compose logs --tail=1000 --follow {{.CLI_ARGS}}
+  restart:
+    aliases: [r]
+    cmds:
+      - docker compose rm -sfv {{.CLI_ARGS}}
+      - docker compose up -d {{.CLI_ARGS}}
+  stop:
+    cmds:
+      - docker compose rm -sfv {{.CLI_ARGS}}
+  status:
+    aliases: [ps]
+    cmds:
+      - docker compose ps

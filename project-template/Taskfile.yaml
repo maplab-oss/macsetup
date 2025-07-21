@@ -1,0 +1,31 @@
+version: "3"
+dotenv:
+  - .env
+tasks:
+  default:
+    cmds:
+      - task: --list
+  start:
+    aliases: [s]
+    cmds:
+      - task: supabase:start
+      - task: docker:start
+      - task: pm2:start
+  stop:
+    cmds:
+      - task: docker:stop
+      - task: supabase:stop
+      - task: pm2:stop
+  status:
+    aliases: [ps]
+    cmds:
+      - task: docker:status
+      - task: supabase:status
+      - task: pm2:status
+includes:
+  docker:
+    aliases: [d]
+    taskfile: ./etc/Taskfile-docker.yaml
+  pm2:
+    aliases: [p]
+    taskfile: ./etc/Taskfile-pm2.yaml
