@@ -11,3 +11,10 @@ List available versions:
 ```
 rbenv install --list
 ```
+
+In project env
+```
+export PATH="/opt/homebrew/bin:$PATH"
+eval "$(rbenv init - zsh)"
+rbenv install "$(cat .ruby-version)"
+```

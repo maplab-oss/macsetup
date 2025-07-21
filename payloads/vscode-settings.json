@@ -19,5 +19,8 @@
     "editor.fontFamily": "'Berkeley Mono', Menlo, Monaco, 'Courier New', monospace",
     "terminal.integrated.fontSize": 18,
     "python.analysis.typeCheckingMode": "strict",
-    "python.terminal.activateEnvironment": false
+    "python.terminal.activateEnvironment": false,
+    "files.exclude": {
+        "**/__pycache__/": true,
+    }
 }
