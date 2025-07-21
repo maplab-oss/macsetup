@@ -29,8 +29,6 @@ cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 brew install go-task/tap/go-task
 brew install go-task awscli tmux overmind
 
-gh auth login
-
 $SCRIPT_DIR/modules/node/install.sh
 $SCRIPT_DIR/modules/python/install.sh
 $SCRIPT_DIR/modules/ruby/install.sh
