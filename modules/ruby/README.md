@@ -1,5 +1,13 @@
-install new versions
+# Ruby Module
+
+Install new Ruby versions:
 
 ```
-rvm install "ruby-x.x.x" --with-openssl-dir=/opt/homebrew/opt/openssl@3
+rbenv install ruby-x.x.x
+rbenv global ruby-x.x.x
+```
+
+List available versions:
+```
+rbenv install --list
 ```

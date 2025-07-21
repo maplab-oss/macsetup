@@ -12,3 +12,4 @@ source $HOME/Code/macsetup/modules/go/zshrc
 source $HOME/Code/macsetup/modules/java/zshrc
 source $HOME/Code/macsetup/modules/node/zshrc
 source $HOME/Code/macsetup/modules/python/zshrc
+source $HOME/Code/macsetup/modules/ruby/zshrc
