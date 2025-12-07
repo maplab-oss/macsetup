@@ -2,13 +2,15 @@
 
 set -e
 
-# Load output helpers
 source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh)
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/repo-prompt.sh)
 
 # run module uninstallers
 [ -f "$HOME/Code/macsetup/modules/node/uninstall.sh" ] && $HOME/Code/macsetup/modules/node/uninstall.sh
 [ -f "$HOME/Code/macsetup/modules/python/uninstall.sh" ] && $HOME/Code/macsetup/modules/python/uninstall.sh
 [ -f "$HOME/Code/macsetup/modules/ruby/uninstall.sh" ] && $HOME/Code/macsetup/modules/ruby/uninstall.sh
+
+prompt_remove_repo || exit 1
 
 # remove core files
 rm -rf $HOME/Code
@@ -26,5 +28,4 @@ source $HOME/.oh-my-zsh/tools/uninstall.sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 sudo rm -rf /opt/homebrew
 
-note "Cache directories (~/.cache, ~/.npm, ~/.gem) and SSH keys (~/.ssh) may exist"
-echo "  Review and manually delete them if needed"
+note "Cache directories (~/.cache, ~/.npm, ~/.gem) and SSH keys (~/.ssh) may exist. Review and manually delete them if needed."
