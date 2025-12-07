@@ -2,15 +2,23 @@
 
 set -e
 
-MODULE_NAME="$1"
+SCRIPT_DIR=$(dirname "$0")
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh) "$@"
+
+# parse module name (skip --user and its value if present)
+MODULE_NAME=""
+for arg in "$@"; do
+  if [[ "$arg" != "--user" ]] && [[ "$arg" != ${TARGET_USER} ]] && [[ -z "$MODULE_NAME" ]]; then
+    if [[ "$arg" != -* ]]; then
+      MODULE_NAME="$arg"
+    fi
+  fi
+done
 
 if [[ -z "$MODULE_NAME" ]]; then
-  echo "Usage: install-module.sh <module-name>"
+  echo "Usage: install-module.sh <module-name> [--user <username>]"
   exit 1
 fi
-
-SCRIPT_DIR=$(dirname "$0")
-source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh)
 
 if [[ ! -d "$SCRIPT_DIR/modules/$MODULE_NAME" ]]; then
   echo "Error: Module '$MODULE_NAME' not found"

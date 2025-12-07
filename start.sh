@@ -3,7 +3,7 @@
 set -e
 
 # parse --user flag and set HOME/USER
-source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh)
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh) "$@"
 
 # make code dir
 mkdir -p $HOME/Code
