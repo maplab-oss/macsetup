@@ -8,14 +8,14 @@
 
 ## Non-Admin User Setup
 
-For non-admin users, run two scripts:
+As admin, install system-wide dependencies:
 
-1. As admin, install system-wide dependencies:
 ```
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/start-admin.sh)"
 ```
 
-2. As target user, set up user environment:
+As target user, set up user environment:
+
 ```
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/start-user.sh)"
 ```

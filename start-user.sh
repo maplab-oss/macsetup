@@ -21,10 +21,10 @@ cp $HOME/Code/macsetup/payloads/gitconfig $HOME/.gitconfig
 cp $HOME/Code/macsetup/payloads/zshrc $HOME/.zshrc
 cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 
-# repo is now cloned at $HOME/Code/macsetup, use that path
+# run module user installers
 $HOME/Code/macsetup/modules/node/install.sh
-$HOME/Code/macsetup/modules/python/install.sh
-$HOME/Code/macsetup/modules/ruby/install.sh
+$HOME/Code/macsetup/modules/python/install-user.sh
+$HOME/Code/macsetup/modules/ruby/install-user.sh
 
 echo "✓ User environment setup complete for $USER"
 
