@@ -29,7 +29,7 @@ if [[ ! -f "$SCRIPT_DIR/modules/$MODULE_NAME/install.sh" ]]; then
   exit 0
 fi
 
-log "Installing $MODULE_NAME module..."
+log "Installing $MODULE_NAME module."
 $SCRIPT_DIR/modules/$MODULE_NAME/install.sh
-success "$MODULE_NAME module installed successfully"
+success "$MODULE_NAME module installed successfully."
 

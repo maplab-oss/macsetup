@@ -21,27 +21,27 @@ for folder in "$@"; do
     
     if [ -d "$SOURCE_PATH" ]; then
         if type log >/dev/null 2>&1; then
-            log "Moving $folder to archive..."
+            log "Moving $folder to archive."
         else
-            echo "🔧 Moving $folder to archive..."
+            echo "🔧 Moving $folder to archive."
         fi
         mv "$SOURCE_PATH" "$DEST_PATH"
         if type success >/dev/null 2>&1; then
-            success "Moved $folder"
+            success "Moved $folder."
         else
-            echo "🔧 ✓ Moved $folder"
+            echo "🔧 ✓ Moved $folder."
         fi
     else
         if type error >/dev/null 2>&1; then
-            error "Folder '$folder' not found in $HOME/Code"
+            error "Folder '$folder' not found in $HOME/Code."
         else
-            echo "🔧 ✗ Folder '$folder' not found in $HOME/Code"
+            echo "🔧 ✗ Folder '$folder' not found in $HOME/Code."
         fi
     fi
 done
 
 if type success >/dev/null 2>&1; then
-    success "Archive operation complete"
+    success "Archive operation complete."
 else
-    echo "🔧 ✓ Archive operation complete"
+    echo "🔧 ✓ Archive operation complete."
 fi

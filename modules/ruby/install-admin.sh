@@ -4,7 +4,7 @@ set -e
 
 source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh)
 
-log "Installing ruby (admin)..."
+log "Installing Ruby (admin)."
 brew install rbenv ruby-build
-success "Ruby (admin) installation complete"
+success "Ruby (admin) installation complete."
 

@@ -17,22 +17,17 @@ prompt_remove_repo() {
     return 0
   fi
 
-  echo ""
-  error "⚠️  Warning: macsetup repository will be removed"
-  echo "   Location: $REPO_PATH"
+  error "⚠️  Warning: Macsetup repository will be removed. Location: $REPO_PATH"
   
   if check_uncommitted_changes; then
-    echo ""
-    error "⚠️  UNCOMMITTED OR UNSAVED CHANGES DETECTED!"
-    echo "   You have uncommitted changes or untracked files that will be LOST."
+    error "⚠️  UNCOMMITTED OR UNSAVED CHANGES DETECTED! You have uncommitted changes or untracked files that will be LOST."
   fi
   
-  echo ""
   echo -n "   Remove the repository and lose any changes? (y/N): "
   read -r response
   
   if [[ ! "$response" =~ ^[Yy]$ ]]; then
-    error "Uninstallation cancelled"
+    error "Uninstallation cancelled."
     return 1
   fi
   
@@ -44,25 +39,21 @@ prompt_override_repo() {
     return 0
   fi
 
-  echo ""
-  note "macsetup repository already exists at $REPO_PATH"
+  note "Macsetup repository already exists at $REPO_PATH."
   
   if check_uncommitted_changes; then
-    echo ""
-    error "⚠️  UNCOMMITTED OR UNSAVED CHANGES DETECTED!"
-    echo "   You have uncommitted changes or untracked files."
+    error "⚠️  UNCOMMITTED OR UNSAVED CHANGES DETECTED! You have uncommitted changes or untracked files."
   fi
   
-  echo ""
   echo -n "   Override the repository and lose any changes? (y/N): "
   read -r response
   
   if [[ "$response" =~ ^[Yy]$ ]]; then
-    log "Removing existing repository..."
+    log "Removing existing repository."
     rm -rf "$REPO_PATH"
     return 0
   else
-    note "Using existing repository"
+    note "Using existing repository."
     return 2
   fi
 }

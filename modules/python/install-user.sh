@@ -4,7 +4,7 @@ set -e
 
 source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh)
 
-log "Installing python (user)..."
+log "Installing Python (user)."
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init - zsh)"
@@ -16,5 +16,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 pyenv install 3:latest || true
 pyenv global $(pyenv versions --bare | tail -1)
-success "Python (user) installation complete"
+success "Python (user) installation complete."
 

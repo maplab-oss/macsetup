@@ -4,7 +4,7 @@ set -e
 
 source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh)
 source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/repo-prompt.sh)
-log "Setting up user environment for $USER..."
+log "Setting up user environment for $USER."
 mkdir -p $HOME/Code
 BREW=/opt/homebrew/bin
 export PATH="$BREW:$PATH"
@@ -25,4 +25,4 @@ cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/python/install-user.sh)"
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/ruby/install-user.sh)"
 
-success "User environment setup complete for $USER"
+success "User environment setup complete for $USER."

@@ -16,9 +16,9 @@ echo "====================="
 # Check if Code directory exists
 if [ ! -d "$CODE_DIR" ]; then
     if type error >/dev/null 2>&1; then
-        error "Directory $CODE_DIR does not exist"
+        error "Directory $CODE_DIR does not exist."
     else
-        echo "🔧 ✗ Directory $CODE_DIR does not exist"
+        echo "🔧 ✗ Directory $CODE_DIR does not exist."
     fi
     exit 1
 fi
