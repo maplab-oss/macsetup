@@ -8,13 +8,9 @@
 
 ### Install for a different user
 
-If you need to install for a non-admin user, run as the target user with sudo:
-
 ```
 sudo -u targetuser /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/start.sh)"
 ```
-
-This runs the script AS the target user. You (the admin running this command) need sudo privileges, but the target user does not need to be an admin.
 
 ## Uninstall
 
