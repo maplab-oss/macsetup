@@ -1,4 +1,4 @@
-sudo brew install rbenv ruby-build
+brew install rbenv ruby-build
 
-rbenv install 3.3.0
+rbenv versions | grep -q "3.3.0" || rbenv install 3.3.0
 rbenv global 3.3.0
