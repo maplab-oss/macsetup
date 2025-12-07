@@ -9,21 +9,10 @@ else
   SCRIPT_DIR=$(dirname "$0")
 fi
 
-source "$SCRIPT_DIR/lib/user-env.sh" "$@"
-echo "Proceeding as $USER with home directory $HOME"
-
-# parse module name (skip --user and its value if present)
-MODULE_NAME=""
-for arg in "$@"; do
-  if [[ "$arg" != "--user" ]] && [[ "$arg" != ${TARGET_USER} ]] && [[ -z "$MODULE_NAME" ]]; then
-    if [[ "$arg" != -* ]]; then
-      MODULE_NAME="$arg"
-    fi
-  fi
-done
+MODULE_NAME="$1"
 
 if [[ -z "$MODULE_NAME" ]]; then
-  echo "Usage: uninstall-module.sh <module-name> [--user <username>]"
+  echo "Usage: uninstall-module.sh <module-name>"
   exit 1
 fi
 

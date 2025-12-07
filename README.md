@@ -8,13 +8,13 @@
 
 ### Install for a different user
 
-If you need to install for a non-admin user, switch to an admin user account first, then run the script with the `--user` flag pointing to the target user:
+If you need to install for a non-admin user, switch to an admin user account first, then run the script as the target user:
 
 ```
-/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/start.sh)" -- --user targetuser
+sudo -u targetuser /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/start.sh)"
 ```
 
-This will install all tools and configurations in the target user's home directory instead of the admin user's.
+This will install all tools and configurations in the target user's home directory.
 
 ## Uninstall
 
@@ -25,7 +25,7 @@ This will install all tools and configurations in the target user's home directo
 ### Uninstall for a different user
 
 ```
-/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/uninstall.sh)" -- --user targetuser
+sudo -u targetuser /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/uninstall.sh)"
 ```
 
 ## Module Commands
@@ -42,7 +42,7 @@ Uninstall a module:
 ~/Code/macsetup/uninstall-module.sh python
 ```
 
-Example with `--user` flag:
+Example for a different user:
 ```
-~/Code/macsetup/install-module.sh python --user targetuser
+sudo -u targetuser ~/Code/macsetup/install-module.sh python
 ```

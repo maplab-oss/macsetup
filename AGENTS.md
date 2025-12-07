@@ -6,4 +6,4 @@ For simplicity, it's assumed that you'll be running this on an Apple Silicon-bas
 
 ## Admin User Setup
 
-The `--user` flag allows an admin user to install tools for a non-admin user by setting the `HOME` and `USER` environment variables to point to the target user's home directory. This works because package managers (npm, pip, rbenv, etc.) respect the `HOME` environment variable when determining where to install files.
+To install for a non-admin user, an admin can use `sudo -u targetuser` to run the script as the target user. This automatically sets the `HOME` and `USER` environment variables correctly, and package managers (npm, pip, rbenv, etc.) install to the target user's home directory.
