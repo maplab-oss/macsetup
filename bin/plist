@@ -1,14 +1,25 @@
 #!/bin/bash
 
+# Load output helpers (optional, fallback to inline if unavailable)
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh) 2>/dev/null || true
+
 # List all projects in $HOME/Code excluding archived ones
 CODE_DIR="$HOME/Code"
 
-echo "Projects in $CODE_DIR:"
+if type log >/dev/null 2>&1; then
+    log "Projects in $CODE_DIR:"
+else
+    echo "🔧 Projects in $CODE_DIR:"
+fi
 echo "====================="
 
 # Check if Code directory exists
 if [ ! -d "$CODE_DIR" ]; then
-    echo "⚠ Directory $CODE_DIR does not exist"
+    if type error >/dev/null 2>&1; then
+        error "Directory $CODE_DIR does not exist"
+    else
+        echo "🔧 ✗ Directory $CODE_DIR does not exist"
+    fi
     exit 1
 fi
 

@@ -2,7 +2,10 @@
 
 set -e
 
-echo "Setting up user environment for $USER..."
+# Load output helpers (always curl since Code dir doesn't exist yet)
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh)
+
+log "Setting up user environment for $USER..."
 
 # make code dir
 mkdir -p $HOME/Code
@@ -26,5 +29,5 @@ $HOME/Code/macsetup/modules/node/install.sh
 $HOME/Code/macsetup/modules/python/install-user.sh
 $HOME/Code/macsetup/modules/ruby/install-user.sh
 
-echo "✓ User environment setup complete for $USER"
+success "User environment setup complete for $USER"
 

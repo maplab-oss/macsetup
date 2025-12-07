@@ -9,6 +9,9 @@ else
   SCRIPT_DIR=$(dirname "$0")
 fi
 
+# Load output helpers
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh)
+
 MODULE_NAME="$1"
 
 if [[ -z "$MODULE_NAME" ]]; then
@@ -26,7 +29,7 @@ if [[ ! -f "$SCRIPT_DIR/modules/$MODULE_NAME/uninstall.sh" ]]; then
   exit 0
 fi
 
-echo "Uninstalling $MODULE_NAME module..."
+log "Uninstalling $MODULE_NAME module..."
 $SCRIPT_DIR/modules/$MODULE_NAME/uninstall.sh
-echo "✓ $MODULE_NAME module uninstalled successfully"
+success "$MODULE_NAME module uninstalled successfully"
 

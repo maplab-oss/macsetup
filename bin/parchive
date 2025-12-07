@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Load output helpers (optional, fallback to inline if unavailable)
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh) 2>/dev/null || true
+
 # Create archive directory if it doesn't exist
 ARCHIVE_DIR="$HOME/Code/_archive"
 mkdir -p "$ARCHIVE_DIR"
@@ -17,12 +20,28 @@ for folder in "$@"; do
     DEST_PATH="$ARCHIVE_DIR/$folder"
     
     if [ -d "$SOURCE_PATH" ]; then
-        echo "Moving $folder to archive..."
+        if type log >/dev/null 2>&1; then
+            log "Moving $folder to archive..."
+        else
+            echo "🔧 Moving $folder to archive..."
+        fi
         mv "$SOURCE_PATH" "$DEST_PATH"
-        echo "✓ Moved $folder"
+        if type success >/dev/null 2>&1; then
+            success "Moved $folder"
+        else
+            echo "🔧 ✓ Moved $folder"
+        fi
     else
-        echo "⚠ Folder '$folder' not found in $HOME/Code"
+        if type error >/dev/null 2>&1; then
+            error "Folder '$folder' not found in $HOME/Code"
+        else
+            echo "🔧 ✗ Folder '$folder' not found in $HOME/Code"
+        fi
     fi
 done
 
-echo "Archive operation complete."
+if type success >/dev/null 2>&1; then
+    success "Archive operation complete"
+else
+    echo "🔧 ✓ Archive operation complete"
+fi
