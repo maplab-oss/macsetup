@@ -17,7 +17,12 @@ if [ $PROMPT_RESULT -eq 0 ]; then
 fi
 [ -d "$HOME/.oh-my-zsh" ] || KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-cp $HOME/Code/macsetup/payloads/gitconfig $HOME/.gitconfig
+log "Configuring git..."
+read "git_name?Enter your full name for git commits: "
+read "git_email?Enter your email for git commits: "
+git config --global user.name "$git_name"
+git config --global user.email "$git_email"
+
 cp $HOME/Code/macsetup/payloads/zshrc $HOME/.zshrc
 cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 
