@@ -10,7 +10,7 @@ if [[ -z "$MODULE_NAME" ]]; then
 fi
 
 SCRIPT_DIR=$(dirname "$0")
-source "$SCRIPT_DIR/lib/user-env.sh"
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh)
 
 if [[ ! -d "$SCRIPT_DIR/modules/$MODULE_NAME" ]]; then
   echo "Error: Module '$MODULE_NAME' not found"

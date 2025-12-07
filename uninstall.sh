@@ -2,15 +2,8 @@
 
 set -e
 
-SCRIPT_DIR=$(dirname "$0")
-
 # parse --user flag and set HOME/USER
-# Try to source from local repo if available, otherwise download from GitHub
-if [[ -f "$SCRIPT_DIR/lib/user-env.sh" ]]; then
-  source "$SCRIPT_DIR/lib/user-env.sh"
-else
-  source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh)
-fi
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh)
 
 rm -rf $HOME/Code
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"

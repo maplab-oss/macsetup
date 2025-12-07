@@ -2,15 +2,8 @@
 
 set -e
 
-SCRIPT_DIR=$(dirname "$0")
-
 # parse --user flag and set HOME/USER
-# Try to source from local repo if available, otherwise download from GitHub
-if [[ -f "$SCRIPT_DIR/lib/user-env.sh" ]]; then
-  source "$SCRIPT_DIR/lib/user-env.sh"
-else
-  source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh)
-fi
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh)
 
 # make code dir
 mkdir -p $HOME/Code
@@ -36,6 +29,7 @@ cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 # install homebrew packages
 brew install go-task/tap/go-task awscli tmux overmind
 
-$SCRIPT_DIR/modules/node/install.sh
-$SCRIPT_DIR/modules/python/install.sh
-$SCRIPT_DIR/modules/ruby/install.sh
+# repo is now cloned at $HOME/Code/macsetup, use that path
+$HOME/Code/macsetup/modules/node/install.sh
+$HOME/Code/macsetup/modules/python/install.sh
+$HOME/Code/macsetup/modules/ruby/install.sh
