@@ -3,9 +3,9 @@
 set -e
 
 SCRIPT_DIR=$(dirname "$0")
+source $SCRIPT_DIR/lib/output.sh
 
-# run admin setup
+log "Starting complete macsetup installation..."
 $SCRIPT_DIR/start-admin.sh
-
-# run user setup
 $SCRIPT_DIR/start-user.sh
+success "Complete macsetup installation finished"

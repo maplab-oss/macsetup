@@ -1,5 +1,0 @@
-namespace: myapp
-processes:
-  - name: "app"
-    dir: "./"
-    script: "./env.sh pnpm run dev"

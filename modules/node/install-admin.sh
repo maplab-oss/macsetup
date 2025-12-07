@@ -6,7 +6,6 @@ SCRIPT_DIR=$(dirname "$0")
 REPO_ROOT=$SCRIPT_DIR/../..
 source $REPO_ROOT/lib/output.sh
 
-log "Installing python (admin)..."
-brew install pipx pyenv
-success "Python (admin) installation complete"
+log "Installing node (admin)..."
+success "Node (admin) installation complete"
 

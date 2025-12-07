@@ -2,7 +2,11 @@
 
 set -e
 
-[ -d "$HOME/.nvm" ] || curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-[ -f "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
-command -v node >/dev/null 2>&1 || nvm install --lts
-nvm alias default 'lts/*'
+SCRIPT_DIR=$(dirname "$0")
+REPO_ROOT=$SCRIPT_DIR/../..
+source $REPO_ROOT/lib/output.sh
+
+log "Installing node module..."
+$SCRIPT_DIR/install-admin.sh
+$SCRIPT_DIR/install-user.sh
+success "Node module installation complete"

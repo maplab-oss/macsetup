@@ -10,6 +10,7 @@ BREW=/opt/homebrew/bin
 export PATH="$BREW:$PATH"
 brew install gh go-task/tap/go-task awscli tmux overmind
 
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/node/install-admin.sh)"
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/python/install-admin.sh)"
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/ruby/install-admin.sh)"
 
