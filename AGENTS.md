@@ -4,6 +4,6 @@ This repository automates the initial setup of a new Mac with essential develope
 
 For simplicity, it's assumed that you'll be running this on an Apple Silicon-based Mac with zsh already installed.
 
-## Admin User Setup
+## Non-Admin User Setup
 
-To install for a non-admin user, an admin uses `sudo -u targetuser` to run the script as the target user. The admin needs sudo privileges to run this command, but the target user doesn't need to be an admin. This automatically sets HOME/USER correctly, and all files are created with the target user's ownership.
+For non-admin users, the setup process is more manual (see README). An admin installs Homebrew system-wide, then runs individual commands as the target user using `sudo -u targetuser`. This ensures package managers (npm, pip, rbenv) install to the target user's home directory with correct ownership.

@@ -5,8 +5,12 @@ set -e
 # make code dir
 mkdir -p $HOME/Code
 
-# install homebrew
-command -v brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# check for homebrew (must be pre-installed by admin for non-admin users)
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Error: Homebrew not found. For non-admin users, an admin must install Homebrew first:"
+  echo "  /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+  exit 1
+fi
 BREW=/opt/homebrew/bin
 export PATH="$BREW:$PATH"
 
