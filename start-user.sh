@@ -21,7 +21,7 @@ cp $HOME/Code/macsetup/payloads/gitconfig $HOME/.gitconfig
 cp $HOME/Code/macsetup/payloads/zshrc $HOME/.zshrc
 cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 
-# run module user installers
+# run module installers
 $HOME/Code/macsetup/modules/node/install.sh
 $HOME/Code/macsetup/modules/python/install-user.sh
 $HOME/Code/macsetup/modules/ruby/install-user.sh
