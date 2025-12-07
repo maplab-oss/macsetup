@@ -8,7 +8,7 @@ path+=("$HOME/.local/bin")
 alias gpop="git reset HEAD^"
 alias sbx="~/Code/sandbox.sh"
 alias gtsync="git fetch --tags && git push origin --tags"
-source $HOME/Code/macsetup/zshrc-user.sh
+[[ -f $HOME/Code/macsetup/zshrc-user.sh ]] && source $HOME/Code/macsetup/zshrc-user.sh
 
 source $HOME/Code/macsetup/modules/go/zshrc
 source $HOME/Code/macsetup/modules/java/zshrc
