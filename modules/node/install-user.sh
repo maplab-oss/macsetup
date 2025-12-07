@@ -9,5 +9,7 @@ log "Installing Node (user)."
 [ -f "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
 command -v node >/dev/null 2>&1 || nvm install --lts
 nvm alias default 'lts/*'
-success "Node (user) installation complete."
 
+log "Installing global npm packages."
+npm install -g pnpm pm2 zapper-cli
+success "Node (user) installation complete."
