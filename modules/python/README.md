@@ -1,44 +1,100 @@
-All python versions and venvs live in ~/.pyenv
+## Philosophy
 
-Install a version with
+This setup follows a **system-level tools, project-level environments** approach:
+
+- **System level**: `pyenv`, `pipx`, `poetry`, and `uv` are installed globally. Python versions are managed by `pyenv` and stored in `~/.pyenv`. Both `poetry` and `uv` are available as package managers.
+- **Project level**: Each project has its own self-contained `.venv` directory containing the Python interpreter and all dependencies. Everything needed for the project lives in the project folder.
+
+## System Setup
+
+Python versions are managed by `pyenv` and stored in `~/.pyenv`. The install script sets up Python 3.12.3 as the default. To install additional versions:
+
 ```
 pyenv install 3.12.3
 pyenv global 3.12.3
 ```
 
-Project setup, this process creates a repo and 'clones', or 'freezes' the python version so that from this point onward we always use this version. You can automate this so when you clone the repo it just works.
+## Project Setup
+
+Each project gets its own self-contained `.venv` directory. Both `uv` and `poetry` are installed and can be used. Choose the one that fits your workflow.
+
+### Using Poetry
+
 ```
+cd myproject
+pyenv local 3.12.3
 poetry init -n
-poetry env use $(pyenv prefix 3.12.3)/bin/python
+poetry env use python
 poetry install
 ```
 
-Set up project tooling
+This creates:
+- `.python-version` file (pins the Python version via pyenv)
+- `.venv/` directory (contains Python interpreter and all dependencies)
+- `pyproject.toml` (project configuration and dependencies)
+
+### Using uv
+
+```
+cd myproject
+pyenv local 3.12.3
+uv init
+uv sync
+```
+
+This creates:
+- `.python-version` file (pins the Python version via pyenv)
+- `.venv/` directory (contains Python interpreter and all dependencies)
+- `pyproject.toml` (project configuration and dependencies)
+- `uv.lock` (lock file for reproducible installs)
+
+Everything is self-contained in the project directory. When you clone a repo, running `poetry install` or `uv sync` will recreate the `.venv` with the correct Python version and dependencies.
+
+## Adding Dependencies
+
+### Using Poetry
+
+Set up project tooling:
 ```
 poetry add --group dev black ruff pyright pytest
 ```
 
-VSCode extensions
+### Using uv
+
+Set up project tooling:
+```
+uv add --dev black ruff pyright pytest
+```
+
+## Running Code
+
+### Using Poetry
+
+Run code with poetry (uses the project's `.venv`):
+```
+poetry run python script.py
+```
+
+### Using uv
+
+Run code with uv (uses the project's `.venv`):
+```
+uv run python script.py
+```
+
+## Editor Configuration
+
+### VSCode Extensions
 - ms-python.python
 - ms-python.vscode-pylance
 - charliermarsh.ruff
 - ms-python.black-formatter
 
-Put this vscode settings in each project
+### VSCode Settings
+
+Add to `.vscode/settings.json` in each project:
 ```
 {
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
 }
-```
-
-Run code with poetry
-```
-PYENV_VERSION=myapp-env poetry run python script.py
-```
-
-For taskfile, set
-```
-PYENV_ROOT: "$HOME/.pyenv"
-PATH: "$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
-PYENV_VERSION: "myapp-env"
 ```

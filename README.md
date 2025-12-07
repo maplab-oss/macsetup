@@ -8,10 +8,10 @@
 
 ### Install for a different user
 
-When running as an admin user, you can install for a different user by specifying the `--user` flag:
+If you need to install for a non-admin user, switch to an admin user account first, then run the script with the `--user` flag pointing to the target user:
 
 ```
-./start.sh --user targetuser
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/start.sh)" -- --user targetuser
 ```
 
 This will install all tools and configurations in the target user's home directory instead of the admin user's.
@@ -20,4 +20,12 @@ This will install all tools and configurations in the target user's home directo
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/uninstall.sh)"
+```
+
+### Uninstall for a different user
+
+To uninstall for a different user, use the `--user` flag:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/uninstall.sh)" -- --user targetuser
 ```

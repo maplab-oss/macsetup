@@ -4,37 +4,12 @@ set -e
 
 SCRIPT_DIR=$(dirname "$0")
 
-# parse --user flag
-TARGET_USER=""
-while [[ $# -gt 0 ]]; do
-  case $1 in
-    --user)
-      if [[ -z "$2" ]]; then
-        echo "Error: --user requires a username"
-        exit 1
-      fi
-      TARGET_USER="$2"
-      shift 2
-      ;;
-    *)
-      shift
-      ;;
-  esac
-done
-
-# set target user and home
-if [[ -n "$TARGET_USER" ]]; then
-  # get actual home directory path (handles cases where username != home directory name)
-  TARGET_HOME=$(dscl . -read /Users/$TARGET_USER NFSHomeDirectory 2>/dev/null | awk '{print $2}')
-  if [[ -z "$TARGET_HOME" ]]; then
-    echo "Error: User '$TARGET_USER' not found"
-    exit 1
-  fi
-  export HOME="$TARGET_HOME"
-  export USER="$TARGET_USER"
+# parse --user flag and set HOME/USER
+# Try to source from local repo if available, otherwise download from GitHub
+if [[ -f "$SCRIPT_DIR/lib/user-env.sh" ]]; then
+  source "$SCRIPT_DIR/lib/user-env.sh"
 else
-  TARGET_HOME="$HOME"
-  TARGET_USER="$USER"
+  source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh)
 fi
 
 # make code dir
