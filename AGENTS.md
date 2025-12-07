@@ -6,4 +6,4 @@ For simplicity, it's assumed that you'll be running this on an Apple Silicon-bas
 
 ## Non-Admin User Setup
 
-For non-admin users, the setup process is more manual (see README). An admin installs Homebrew system-wide, then runs individual commands as the target user using `sudo -u targetuser`. This ensures package managers (npm, pip, rbenv) install to the target user's home directory with correct ownership.
+For non-admin users, the setup uses two scripts: `start-admin.sh` (installs Homebrew and system packages as admin) and `start-user.sh` (sets up user environment). The admin runs both, using `sudo -u targetuser` for the second. This ensures package managers (npm, pip, rbenv) install to the target user's home directory with correct ownership.
