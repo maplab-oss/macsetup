@@ -2,7 +2,13 @@
 
 set -e
 
-SCRIPT_DIR=$(dirname "$0")
+# Determine script directory (fallback to $HOME/Code/macsetup if run via curl)
+if [[ "$0" == "-zsh" ]] || [[ "$0" == "zsh" ]]; then
+  SCRIPT_DIR="$HOME/Code/macsetup"
+else
+  SCRIPT_DIR=$(dirname "$0")
+fi
+
 source "$SCRIPT_DIR/lib/user-env.sh" "$@"
 echo "Proceeding as $USER with home directory $HOME"
 
