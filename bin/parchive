@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Create archive directory if it doesn't exist
+ARCHIVE_DIR="$HOME/Code/_archive"
+mkdir -p "$ARCHIVE_DIR"
+
+# Check if any arguments were provided
+if [ $# -eq 0 ]; then
+    echo "Usage: parchive <folder1> [folder2] [folder3] ..."
+    echo "Moves folders from $HOME/Code to $HOME/Code/_archive"
+    exit 1
+fi
+
+# Process each argument
+for folder in "$@"; do
+    SOURCE_PATH="$HOME/Code/$folder"
+    DEST_PATH="$ARCHIVE_DIR/$folder"
+    
+    if [ -d "$SOURCE_PATH" ]; then
+        echo "Moving $folder to archive..."
+        mv "$SOURCE_PATH" "$DEST_PATH"
+        echo "✓ Moved $folder"
+    else
+        echo "⚠ Folder '$folder' not found in $HOME/Code"
+    fi
+done
+
+echo "Archive operation complete."

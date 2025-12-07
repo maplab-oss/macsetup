@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# List all projects in $HOME/Code excluding archived ones
+CODE_DIR="$HOME/Code"
+
+echo "Projects in $CODE_DIR:"
+echo "====================="
+
+# Check if Code directory exists
+if [ ! -d "$CODE_DIR" ]; then
+    echo "⚠ Directory $CODE_DIR does not exist"
+    exit 1
+fi
+
+# Count and list directories, excluding _archive
+count=0
+for dir in "$CODE_DIR"/*; do
+    if [ -d "$dir" ] && [ "$(basename "$dir")" != "_archive" ] && [ "$(basename "$dir")" != "archive" ]; then
+        basename "$dir"
+        ((count++))
+    fi
+done | sort
+
+echo "====================="
+echo "Total: $count projects" 

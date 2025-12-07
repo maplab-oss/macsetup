@@ -3,6 +3,7 @@ All python versions and venvs live in ~/.pyenv
 Install a version with
 ```
 pyenv install 3.12.3
+pyenv global 3.12.3
 ```
 
 Project setup, this process creates a repo and 'clones', or 'freezes' the python version so that from this point onward we always use this version. You can automate this so when you clone the repo it just works.

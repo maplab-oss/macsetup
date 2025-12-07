@@ -4,8 +4,10 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/Code/macsetup/env/zsh-theme.sh
 path+=("/opt/homebrew/bin")
 path+=("$HOME/Code/macsetup/bin")
+path+=("$HOME/.local/bin")
 alias gpop="git reset HEAD^"
 alias sbx="~/Code/sandbox.sh"
+alias gtsync="git fetch --tags && git push origin --tags"
 source $HOME/Code/macsetup/zshrc-user.sh
 
 source $HOME/Code/macsetup/modules/go/zshrc
@@ -13,3 +15,6 @@ source $HOME/Code/macsetup/modules/java/zshrc
 source $HOME/Code/macsetup/modules/node/zshrc
 source $HOME/Code/macsetup/modules/python/zshrc
 source $HOME/Code/macsetup/modules/ruby/zshrc
+source $HOME/Code/macsetup/modules/pnpm/zshrc
+
+export FOOO=1
