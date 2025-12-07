@@ -3,7 +3,11 @@
 set -e
 
 SCRIPT_DIR=$(dirname "$0")
-source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh) "$@"
+if [[ -f "$SCRIPT_DIR/lib/user-env.sh" ]]; then
+  source "$SCRIPT_DIR/lib/user-env.sh" "$@"
+else
+  source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh) "$@"
+fi
 echo "Proceeding as $USER with home directory $HOME"
 
 # parse module name (skip --user and its value if present)

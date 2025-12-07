@@ -6,6 +6,9 @@
 # save original positional parameters
 _orig_args=("$@")
 
+# debug: show what arguments we received
+[[ ${#_orig_args[@]} -gt 0 ]] && echo "DEBUG: user-env.sh received ${#_orig_args[@]} arguments: ${_orig_args[@]}" || echo "DEBUG: user-env.sh received no arguments"
+
 TARGET_USER=""
 for ((i=1; i<=${#_orig_args[@]}; i++)); do
   if [[ "${_orig_args[$i]}" == "--user" ]]; then
