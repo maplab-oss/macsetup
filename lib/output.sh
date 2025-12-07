@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-# Output helper functions with consistent formatting
 OUTPUT_TAG="[macsetup]"
 
 log() {

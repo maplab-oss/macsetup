@@ -2,7 +2,7 @@
 
 set -e
 
-# Determine script directory (fallback to $HOME/Code/macsetup if run via curl)
+# Determine script directory
 if [[ "$0" == "-zsh" ]] || [[ "$0" == "zsh" ]]; then
   SCRIPT_DIR="$HOME/Code/macsetup"
 else

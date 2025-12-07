@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# Default command and target
 CMD="${1:-start}"
 TARGET="${2:-all}"
 CONFIG="proc.yaml"
-
-# Get namespace from config file
 NAMESPACE=$(yq eval '.namespace' "$CONFIG")
 if [[ -z "$NAMESPACE" || "$NAMESPACE" == "null" ]]; then
   echo "Error: namespace not found in $CONFIG"
@@ -13,26 +10,25 @@ if [[ -z "$NAMESPACE" || "$NAMESPACE" == "null" ]]; then
   exit 1
 fi
 
-# Alias 'stop' to 'delete'
 [[ "$CMD" == "stop" ]] && CMD="delete"
 
-# Function to get namespaced process names
+# get namespaced process names
 get_namespaced_processes() {
   pm2 jlist | jq -r ".[].name" | grep "^$NAMESPACE:" || true
 }
 
-# Function to get process names from config
+# get process names from config
 get_config_processes() {
   yq eval '.processes[].name' "$CONFIG"
 }
 
-# Function to get process directory
+# get process directory
 get_process_dir() {
   local service_name="$1"
   yq eval ".processes[] | select(.name == \"$service_name\") | .dir" "$CONFIG"
 }
 
-# Function to get process script
+# get process script
 get_process_script() {
   local service_name="$1"
   yq eval ".processes[] | select(.name == \"$service_name\") | .script" "$CONFIG"
@@ -41,7 +37,6 @@ get_process_script() {
 case "$CMD" in
   logs)
     if [[ "$TARGET" == "all" ]]; then
-      # Get all processes with our namespace prefix
       PROCESSES=$(get_namespaced_processes)
       if [[ -z "$PROCESSES" ]]; then
         echo "No processes found with namespace: $PM2_NAMESPACE"
@@ -63,7 +58,6 @@ case "$CMD" in
     ;;
   start)
     if [[ "$TARGET" == "all" ]]; then
-      # Start all processes manually
       while IFS= read -r service; do
         SCRIPT=$(get_process_script "$service")
         DIR=$(get_process_dir "$service")
@@ -71,7 +65,6 @@ case "$CMD" in
         pm2 start "$SCRIPT" --name "$NAMESPACE:$service" --cwd "$DIR" --no-autorestart --silent
       done < <(get_config_processes)
     else
-      # Check if service exists in config
       if get_config_processes | grep -q "^$TARGET$"; then
         SCRIPT=$(get_process_script "$TARGET")
         DIR=$(get_process_dir "$TARGET")
@@ -85,7 +78,6 @@ case "$CMD" in
     ;;
   restart)
     if [[ "$TARGET" == "all" ]]; then
-      # Restart all processes with our namespace
       PROCESSES=$(get_namespaced_processes)
       if [[ -n "$PROCESSES" ]]; then
         echo "$PROCESSES" | xargs -I {} pm2 restart "{}"
@@ -99,7 +91,6 @@ case "$CMD" in
     ;;
   delete)
     if [[ "$TARGET" == "all" ]]; then
-      # Delete all processes with our namespace
       PROCESSES=$(get_namespaced_processes)
       if [[ -n "$PROCESSES" ]]; then
         echo "$PROCESSES" | xargs -I {} pm2 delete "{}" --silent

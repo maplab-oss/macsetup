@@ -2,7 +2,7 @@
 
 set -e
 
-# Load output helpers (always curl since Code dir doesn't exist yet)
+# Load output helpers
 source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh)
 
 log "Setting up user environment for $USER..."
