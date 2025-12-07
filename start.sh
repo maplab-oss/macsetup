@@ -24,7 +24,12 @@ done
 
 # set target user and home
 if [[ -n "$TARGET_USER" ]]; then
-  TARGET_HOME="/Users/$TARGET_USER"
+  # get actual home directory path (handles cases where username != home directory name)
+  TARGET_HOME=$(dscl . -read /Users/$TARGET_USER NFSHomeDirectory 2>/dev/null | awk '{print $2}')
+  if [[ -z "$TARGET_HOME" ]]; then
+    echo "Error: User '$TARGET_USER' not found"
+    exit 1
+  fi
   export HOME="$TARGET_HOME"
   export USER="$TARGET_USER"
 else
