@@ -16,5 +16,3 @@ source $HOME/Code/macsetup/modules/node/zshrc
 source $HOME/Code/macsetup/modules/python/zshrc
 source $HOME/Code/macsetup/modules/ruby/zshrc
 source $HOME/Code/macsetup/modules/pnpm/zshrc
-
-export FOOO=1
