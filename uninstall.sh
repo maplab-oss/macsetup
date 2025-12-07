@@ -4,6 +4,7 @@ set -e
 
 # parse --user flag and set HOME/USER
 source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh) "$@"
+echo "Proceeding as $USER with home directory $HOME"
 
 rm -rf $HOME/Code
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"

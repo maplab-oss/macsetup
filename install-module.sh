@@ -4,6 +4,7 @@ set -e
 
 SCRIPT_DIR=$(dirname "$0")
 source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh) "$@"
+echo "Proceeding as $USER with home directory $HOME"
 
 # parse module name (skip --user and its value if present)
 MODULE_NAME=""
