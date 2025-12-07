@@ -24,8 +24,25 @@ This will install all tools and configurations in the target user's home directo
 
 ### Uninstall for a different user
 
-To uninstall for a different user, use the `--user` flag:
-
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/uninstall.sh)" -- --user targetuser
+```
+
+## Module Commands
+
+For testing or reinstalling individual modules (requires repo at `~/Code/macsetup`):
+
+Install a module:
+```
+~/Code/macsetup/install-module.sh python
+```
+
+Uninstall a module:
+```
+~/Code/macsetup/uninstall-module.sh python
+```
+
+Example with `--user` flag:
+```
+~/Code/macsetup/install-module.sh python --user targetuser
 ```

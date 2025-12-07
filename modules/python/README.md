@@ -7,11 +7,11 @@ This setup follows a **system-level tools, project-level environments** approach
 
 ## System Setup
 
-Python versions are managed by `pyenv` and stored in `~/.pyenv`. The install script sets up Python 3.12.3 as the default. To install additional versions:
+Python versions are managed by `pyenv` and stored in `~/.pyenv`. The install script sets up a default Python version. To install additional versions:
 
 ```
-pyenv install 3.12.3
-pyenv global 3.12.3
+pyenv install 3.12.7
+pyenv global 3.12.7
 ```
 
 ## Project Setup
@@ -22,7 +22,7 @@ Each project gets its own self-contained `.venv` directory. Both `uv` and `poetr
 
 ```
 cd myproject
-pyenv local 3.12.3
+pyenv local $(pyenv version | cut -d' ' -f1)
 poetry init -n
 poetry env use python
 poetry install
@@ -37,7 +37,7 @@ This creates:
 
 ```
 cd myproject
-pyenv local 3.12.3
+pyenv local $(pyenv version | cut -d' ' -f1)
 uv init
 uv sync
 ```
