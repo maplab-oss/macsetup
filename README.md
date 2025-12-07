@@ -3,7 +3,7 @@
 ## Install
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/start.sh)"
+/bin/zsh -c "$(curl -fsSL "https://raw.githubusercontent.com/felixsebastian/macsetup/main/start.sh?$(date +%s)")"
 ```
 
 ### Install for a different user
@@ -11,7 +11,7 @@
 If you need to install for a non-admin user, switch to an admin user account first, then run the script with the `--user` flag pointing to the target user:
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/start.sh)" -- --user targetuser
+/bin/zsh -c "$(curl -fsSL "https://raw.githubusercontent.com/felixsebastian/macsetup/main/start.sh?$(date +%s)")" -- --user targetuser
 ```
 
 This will install all tools and configurations in the target user's home directory instead of the admin user's.
@@ -19,13 +19,13 @@ This will install all tools and configurations in the target user's home directo
 ## Uninstall
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/uninstall.sh)"
+/bin/zsh -c "$(curl -fsSL "https://raw.githubusercontent.com/felixsebastian/macsetup/main/uninstall.sh?$(date +%s)")"
 ```
 
 ### Uninstall for a different user
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/uninstall.sh)" -- --user targetuser
+/bin/zsh -c "$(curl -fsSL "https://raw.githubusercontent.com/felixsebastian/macsetup/main/uninstall.sh?$(date +%s)")" -- --user targetuser
 ```
 
 ## Module Commands

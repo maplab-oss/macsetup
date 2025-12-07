@@ -6,7 +6,7 @@ SCRIPT_DIR=$(dirname "$0")
 if [[ -f "$SCRIPT_DIR/lib/user-env.sh" ]]; then
   source "$SCRIPT_DIR/lib/user-env.sh" "$@"
 else
-  source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh) "$@"
+  source <(curl -fsSL "https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/user-env.sh?$(date +%s)") "$@"
 fi
 echo "Proceeding as $USER with home directory $HOME"
 
