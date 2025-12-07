@@ -6,4 +6,4 @@ For simplicity, it's assumed that you'll be running this on an Apple Silicon-bas
 
 ## Admin User Setup
 
-To install for a non-admin user, an admin runs the script with sudo and the `--user` flag. The flag sets `HOME` and `USER` to the target user, so package managers (npm, pip, rbenv, etc.) install to the target user's home. The script runs as root (via sudo) to handle privileged operations like brew installs, then fixes file ownership to the target user.
+To install for a non-admin user, an admin uses `sudo -u targetuser` to run the script as the target user. The admin needs sudo privileges to run this command, but the target user doesn't need to be an admin. This automatically sets HOME/USER correctly, and all files are created with the target user's ownership.

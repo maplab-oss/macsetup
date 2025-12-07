@@ -9,17 +9,7 @@ else
   SCRIPT_DIR=$(dirname "$0")
 fi
 
-# parse --user flag
-source "$SCRIPT_DIR/lib/user-env.sh" "$@"
-
-# get module name (first non-flag argument)
-MODULE_NAME=""
-for arg in "$@"; do
-  if [[ "$arg" != "--user" ]] && [[ "$arg" != "$TARGET_USER" ]] && [[ "$arg" != -* ]]; then
-    MODULE_NAME="$arg"
-    break
-  fi
-done
+MODULE_NAME="$1"
 
 if [[ -z "$MODULE_NAME" ]]; then
   echo "Usage: uninstall-module.sh <module-name>"
