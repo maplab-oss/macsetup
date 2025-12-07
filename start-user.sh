@@ -21,8 +21,8 @@ cp $HOME/Code/macsetup/payloads/gitconfig $HOME/.gitconfig
 cp $HOME/Code/macsetup/payloads/zshrc $HOME/.zshrc
 cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 
-$HOME/Code/macsetup/modules/node/install-user.sh
-$HOME/Code/macsetup/modules/python/install-user.sh
-$HOME/Code/macsetup/modules/ruby/install-user.sh
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/node/install-user.sh)"
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/python/install-user.sh)"
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/ruby/install-user.sh)"
 
 success "User environment setup complete for $USER"

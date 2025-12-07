@@ -2,11 +2,9 @@
 
 set -e
 
-SCRIPT_DIR=$(dirname "$0")
-REPO_ROOT=$SCRIPT_DIR/../..
-source $REPO_ROOT/lib/output.sh
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh)
 
 log "Installing node module..."
-$SCRIPT_DIR/install-admin.sh
-$SCRIPT_DIR/install-user.sh
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/node/install-admin.sh)"
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/node/install-user.sh)"
 success "Node module installation complete"

@@ -2,9 +2,7 @@
 
 set -e
 
-SCRIPT_DIR=$(dirname "$0")
-REPO_ROOT=$SCRIPT_DIR/../..
-source $REPO_ROOT/lib/output.sh
+source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/lib/output.sh)
 
 log "Installing node (user)..."
 [ -d "$HOME/.nvm" ] || curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
