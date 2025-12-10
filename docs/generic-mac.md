@@ -13,6 +13,8 @@
 - Cursor
 - Terminal
 - Orbstack
+- Aqua voice
+- Atlas
 
 # Naming
 
