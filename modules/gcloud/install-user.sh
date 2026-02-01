@@ -7,5 +7,3 @@ source <(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/ma
 log "Installing Google Cloud CLI (user)."
 curl https://sdk.cloud.google.com | bash -s -- --disable-prompts --install-dir=$HOME
 success "Google Cloud CLI (user) installation complete."
-
-
