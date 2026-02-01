@@ -29,5 +29,6 @@ cp $HOME/Code/macsetup/payloads/sandbox.sh $HOME/sandbox.sh
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/node/install-user.sh)"
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/python/install-user.sh)"
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/ruby/install-user.sh)"
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/felixsebastian/macsetup/main/modules/gcloud/install-user.sh)"
 
 success "User environment setup complete for $USER."
