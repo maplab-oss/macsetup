@@ -6,21 +6,7 @@
 /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/maplab-oss/macsetup/main/start.sh)"
 ```
 
-If the repository already exists at `~/Code/macsetup`, you'll be prompted to override it. The script will warn you if there are uncommitted or unsaved changes that would be lost.
-
-## Non-Admin User Setup
-
-As admin, install system-wide dependencies:
-
-```
-/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/maplab-oss/macsetup/main/start-admin.sh)"
-```
-
-As target user, set up user environment:
-
-```
-/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/maplab-oss/macsetup/main/start-user.sh)"
-```
+The install script assumes you're running it as the admin user on the machine. If the repository already exists at `~/Code/macsetup`, you'll be prompted to override it. The script will warn you if there are uncommitted or unsaved changes that would be lost.
 
 ## Uninstall
 
